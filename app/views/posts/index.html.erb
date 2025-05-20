@@ -1,0 +1,19 @@
+<% content_for :title, "Posts" %>
+<main>
+      <h2><%= @message %></h2>
+
+      <div class="posts-container">
+        <% if @posts.empty? %>
+          <p class="no-posts">No posts available.</p>
+        <% else %>
+          <ul class="post-list">
+            <% @posts.each do |post| %>
+              <li class="post-item">
+                <h3 class="post-title"><%= post["title"] %></h3>
+                <p class="post-body"><%= post["body"] %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+</main>
