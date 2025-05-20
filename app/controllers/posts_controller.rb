@@ -10,14 +10,13 @@ class PostsController < ApplicationController
 
     if response.is_a?(Net::HTTPSuccess)
       @posts = JSON.parse(response.body)
-      puts @posts.inspect
     else
       @posts = []
       flash[:error] = "Failed to fetch posts"
     end
   end
 
-  def posts_json
+  def json
     url = URI.parse("https://jsonplaceholder.typicode.com/posts")
     response = Net::HTTP.get_response(url)
 
